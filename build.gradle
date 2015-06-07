@@ -1,0 +1,43 @@
+group = 'com.syamantakm.spark'
+version = '1.1-SNAPSHOT'
+
+description = """spark-example"""
+
+apply plugin: 'scala'
+apply plugin: 'idea'
+apply plugin: 'scalaStyle'
+
+buildscript {
+    repositories {
+        jcenter() // only work after gradle 1.7
+    }
+
+    dependencies {
+        classpath 'org.github.ngbinh.scalastyle:gradle-scalastyle-plugin_2.11:0.7.2'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.scala-lang:scala-library:2.11.6'
+    compile 'org.apache.spark:spark-core_2.11:1.3.1'
+
+    testCompile 'org.testng:testng:6.8'
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '1.10.19'
+    testCompile 'org.scalatest:scalatest_2.11:3.0.0-SNAP5'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.syamantakm.spark.SampleApp'
+    }
+}
+
+scalaStyle {
+    configLocation = 'style/scalastyle_config.xml'
+    source = ['server/src/main/scala', 'client/src/main/scala']
+}
+
