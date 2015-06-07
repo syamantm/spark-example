@@ -30,12 +30,6 @@ dependencies {
     testCompile 'org.scalatest:scalatest_2.11:3.0.0-SNAP5'
 }
 
-jar {
-    manifest {
-        attributes 'Main-Class': 'com.syamantakm.spark.SampleApp'
-    }
-}
-
 scalaStyle {
     configLocation = 'style/scalastyle_config.xml'
     source = ['server/src/main/scala', 'client/src/main/scala']

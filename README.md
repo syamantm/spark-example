@@ -15,7 +15,7 @@ $ gradlew build
 
 jar will be located under `build/libs`
 
-## Submit job to Spark
+## Submit Sample job to Spark
 
 ```
 # Use spark-submit to run your application
@@ -25,3 +25,12 @@ $ spark-submit \
   build/libs/spark-example-1.1-SNAPSHOT.jar
 ```
 
+## Submit Word Count job to Spark
+
+```
+# Use spark-submit to run your application
+$ spark-submit \
+  --class "com.syamantakm.spark.WordCountApp" \
+  --master local[4] \
+  build/libs/spark-example-1.1-SNAPSHOT.jar
+```
